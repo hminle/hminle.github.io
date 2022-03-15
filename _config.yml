@@ -1,7 +1,7 @@
 # -----------------------------------------------------------------------------
 # Site settings
 # -----------------------------------------------------------------------------
-github: [metadata]
+
 title: blank # the website title (if blank, full name will be used instead)
 first_name: Hoang
 middle_name: M.
@@ -308,3 +308,4 @@ popper:
 medium_zoom:
   version: "1.0.6"
   integrity: "sha256-EdPgYcPk/IIrw7FYeuJQexva49pVRZNmt3LculEr7zM="
+github: [metadata]
