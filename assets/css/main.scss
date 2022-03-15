@@ -7,10 +7,10 @@
 $max-content-width: {{ site.max_width }};
 
 @import
+  "custom",
   "variables",
   "themes",
   "layout",
   "base",
-  "distill",
-  "custom"
+  "distill"
 ;
