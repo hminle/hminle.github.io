@@ -1,37 +1,51 @@
-name: Build
+name: Deploy
 
 on:
   push:
     branches:
+      - master
+      - main
+  pull_request:
+    branches:
+      - master
       - main
 
 jobs:
-  jekyll:
+  deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: 📂 setup
-        uses: actions/checkout@v2
-
-        # include the lines below if you are using jekyll-last-modified-at
-        # or if you would otherwise need to fetch the full commit history
-        # however this may be very slow for large repositories!
-        # with:
-        # fetch-depth: '0'
-      - name: 💎 setup ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: 2.7
-
-      - name: 🔨 install dependencies & build site
-        uses: limjh16/jekyll-action-ts@v2
-        with:
-          enable_cache: true
-
-      - name: 🚀 deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./_site
-          # if the repo you are deploying to is <username>.github.io, uncomment the line below.
-          # if you are including the line below, make sure your source files are NOT in the "main" branch:
-          publish_branch: master
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Setup Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '3.0.2'
+    - name: Enable bundler cache
+      uses: actions/cache@v2
+      with:
+        path: vendor/bundle
+        key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-gems-
+    - name: Install deps
+      run: |
+        gem install bundler
+        bundle config path vendor/bundle
+        bundle install --jobs 4 --retry 3
+        npm install -g mermaid.cli
+    - name: Setup deploy options
+      id: setup
+      run: |
+        git config --global user.name "GitHub Action"
+        git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        if [[ ${GITHUB_REF} = refs/pull/*/merge ]]; then # pull request
+          echo "::set-output name=SRC_BRANCH::${GITHUB_HEAD_REF}"
+          echo "::set-output name=NO_PUSH::--no-push"
+        elif [[ ${GITHUB_REF} = refs/heads/* ]]; then # branch, e.g. master, source etc
+          echo "::set-output name=SRC_BRANCH::${GITHUB_REF#refs/heads/}"
+        fi
+        echo "::set-output name=DEPLOY_BRANCH::gh-pages"
+    - name: Deploy website 
+      run:  yes | bin/deploy --verbose ${{ steps.setup.outputs.NO_PUSH }}
+                    --src ${{ steps.setup.outputs.SRC_BRANCH }} 
+                    --deploy ${{ steps.setup.outputs.DEPLOY_BRANCH }} 
