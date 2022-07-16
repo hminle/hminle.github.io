@@ -7,7 +7,7 @@ supervisor: Prof. Michael S. Brown
 
 profile:
   align: right
-  image: anhtheMin_20220715_IMG_5968_2.png
+  image: mangkinh_straightlook_2022.png
   address: >
     <p>Toronto, Canada</p>
 
