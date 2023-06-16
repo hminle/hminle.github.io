@@ -16,4 +16,4 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
 
-I am a PhD student supervised by [Prof. Michael S. Brown](http://www.cse.yorku.ca/~mbrown/). My research interests are computer vision, image processing, and computational photography.
+I am a PhD student supervised by [Prof. Michael S. Brown](http://www.cse.yorku.ca/~mbrown/). My research interests are computer vision, image processing, and computational color. My expected date of graduation is Dec, 2023. I am actively looking for a job. **[Click here to see my CV](https://drive.google.com/file/d/1kssTvv--BGVfAmEREJFbV2JAjKixFl-I/view?usp=sharing)**.

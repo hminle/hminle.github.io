@@ -3,9 +3,17 @@
     url: https://sites.google.com/view/mafifi
 
 "Brown":
-  - firstname: ["Michael S", "Michael"]
+  - firstname: ["Michael S", "Michael", "Michael S."]
     url: http://www.cse.yorku.ca/~mbrown/
 
 "Abdelhamed":
   - firstname: ["Abdelrahman"]
     url: https://abdokamel.github.io/
+
+"Price":
+  - firstname: ["Brian"]
+    url: https://www.brianpricephd.com/
+
+"Cohen":
+  - firstname: ["Scott"]
+    url: https://research.adobe.com/person/scott-cohen/
