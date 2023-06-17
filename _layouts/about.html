@@ -57,10 +57,15 @@ layout: default
             
           </div>
           {%- endif %}
+          {% if page.patents -%}
+            <!-- Patents  -->
+            {%- include patents.html %}
+          {%- endif %}
           {% if page.selected_papers -%}
             <!-- Selected papers -->
             {%- include selected_papers.html %}
           {%- endif %}
+
         </article>
 
 </div>
