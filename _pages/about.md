@@ -17,4 +17,4 @@ social: true  # includes social icons at the bottom of the page
 patents: true # includes a list of patents
 ---
 
-I am a PhD student supervised by [Prof. Michael S. Brown](http://www.cse.yorku.ca/~mbrown/). My research interests are computer vision, image processing, and computational color. My expected date of graduation is April, 2024. I am actively looking for a job. **[Click here to see my latest CV](https://drive.google.com/file/d/1thJh3qxkUPhmlinqjjqWKZTUhCBEeTVL/view)**.
+I am a PhD student supervised by [Prof. Michael S. Brown](http://www.cse.yorku.ca/~mbrown/). My research interests are computer vision, image processing, and computational color. **[Click here to see my latest CV](https://drive.google.com/file/d/1thJh3qxkUPhmlinqjjqWKZTUhCBEeTVL/view)**.
