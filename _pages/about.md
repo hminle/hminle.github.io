@@ -17,4 +17,4 @@ social: true  # includes social icons at the bottom of the page
 patents: true # includes a list of patents
 ---
 
-I am a PhD student supervised by [Prof. Michael S. Brown](http://www.cse.yorku.ca/~mbrown/). My research interests are computer vision, image processing, and computational color. **[Click here to see my latest CV](https://drive.google.com/file/d/1thJh3qxkUPhmlinqjjqWKZTUhCBEeTVL/view)**.
+I obtained my PhD in Computer Science from York University, where I was supervised by [Prof. Michael S. Brown](http://www.cse.yorku.ca/~mbrown/). My research interests include camera ISP algorithms, color space conversion, and computational color. **[Click here to see my latest CV](https://drive.google.com/file/d/1thJh3qxkUPhmlinqjjqWKZTUhCBEeTVL/view)**.
