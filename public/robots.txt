@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hminle.com/sitemap-index.xml

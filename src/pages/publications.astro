@@ -1,0 +1,33 @@
+---
+import Base from '../layouts/Base.astro';
+import PubItem from '../components/PubItem.astro';
+import { publications } from '../data/publications';
+import { site } from '../data/site';
+
+const years = [...new Set(publications.map((p) => p.year))].sort((a, b) => b - a);
+---
+
+<Base title="Publications" description={`Publications by ${site.name}.`}>
+  <header class="space-y-3">
+    <h1 class="font-serif text-4xl font-semibold tracking-tight">Publications</h1>
+    <p class="text-muted">
+      {publications.length} papers. Also on{' '}
+      <a class="link" href={site.links.scholar} target="_blank" rel="noopener">Google Scholar</a>.
+    </p>
+  </header>
+
+  <div class="mt-12 space-y-14">
+    {
+      years.map((year) => (
+        <section class="space-y-8">
+          <h2 class="section-title tabular-nums">{year}</h2>
+          {publications
+            .filter((p) => p.year === year)
+            .map((pub) => (
+              <PubItem pub={pub} />
+            ))}
+        </section>
+      ))
+    }
+  </div>
+</Base>

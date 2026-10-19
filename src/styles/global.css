@@ -1,0 +1,97 @@
+@import 'tailwindcss';
+@import '@fontsource-variable/inter';
+@import '@fontsource-variable/source-serif-4';
+
+/* Palette: #e8f1f2 mist · #b3efb2 mint · #7a9e7e sage · #31493c forest · #001a23 ink */
+:root {
+  --bg: #e8f1f2;
+  --surface: #f5f9f9;
+  --text: #001a23;
+  --muted: #3f5a48;
+  --accent: #31493c;
+  --highlight: #b3efb2;
+  --line: #c6d8d3;
+  --badge-bg: #31493c;
+  --badge-text: #e8f1f2;
+  color-scheme: light;
+}
+
+:root[data-theme='dark'] {
+  --bg: #001a23;
+  --surface: #0a2a2c;
+  --text: #e8f1f2;
+  --muted: #9cbca0;
+  --accent: #b3efb2;
+  --highlight: #31493c;
+  --line: #1f3a37;
+  --badge-bg: #b3efb2;
+  --badge-text: #001a23;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-serif: 'Source Serif 4 Variable', ui-serif, Georgia, serif;
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-ink: var(--text);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-highlight: var(--highlight);
+  --color-line: var(--line);
+  --color-badge: var(--badge-bg);
+  --color-badge-ink: var(--badge-text);
+  --color-sage: #7a9e7e;
+}
+
+@layer base {
+  html {
+    background: var(--bg);
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+    scroll-behavior: smooth;
+  }
+
+  ::selection {
+    background: var(--highlight);
+    color: var(--text);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}
+
+@layer components {
+  /* Prose links: subtle mint underline that fills on hover. */
+  .link {
+    color: var(--accent);
+    font-weight: 500;
+    text-decoration: underline;
+    text-decoration-color: var(--sage, #7a9e7e);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    transition: text-decoration-color 150ms, background-color 150ms;
+  }
+  .link:hover {
+    text-decoration-color: currentColor;
+  }
+
+  .section-title {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+}

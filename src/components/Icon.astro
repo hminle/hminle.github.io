@@ -1,0 +1,27 @@
+---
+import { getIconData, iconToSVG, iconToHTML, replaceIDs } from '@iconify/utils';
+import mdi from '@iconify-json/mdi/icons.json';
+import academicons from '@iconify-json/academicons/icons.json';
+import type { IconifyJSON } from '@iconify/types';
+
+interface Props {
+  /** "mdi:github" or "academicons:google-scholar" */
+  name: string;
+  class?: string;
+}
+
+const sets: Record<string, IconifyJSON> = { mdi, academicons } as Record<string, IconifyJSON>;
+const { name, class: className = 'size-5' } = Astro.props;
+const [prefix, icon] = name.split(':');
+const data = getIconData(sets[prefix], icon);
+if (!data) throw new Error(`Unknown icon: ${name}`);
+const { attributes, body } = iconToSVG(data, { height: 'auto' });
+const svg = iconToHTML(replaceIDs(body), {
+  ...attributes,
+  class: className,
+  'aria-hidden': 'true',
+  fill: 'currentColor',
+});
+---
+
+<Fragment set:html={svg} />

@@ -1,0 +1,64 @@
+---
+import type { Publication } from '../data/publications';
+import Authors from './Authors.astro';
+
+interface Props {
+  pub: Publication;
+}
+
+const { pub } = Astro.props;
+const linkLabels = { pdf: 'PDF', arxiv: 'arXiv', code: 'Code', project: 'Project' } as const;
+const links = Object.entries(pub.links ?? {}) as [keyof typeof linkLabels, string][];
+---
+
+<article class="grid gap-x-5 gap-y-2 sm:grid-cols-[5.5rem_1fr]">
+  <div class="pt-0.5">
+    <span
+      class="bg-badge text-badge-ink inline-block min-w-16 rounded-md px-2 py-1 text-center text-xs font-semibold tracking-wide"
+    >
+      {pub.abbr}
+      <span class="opacity-75">'{String(pub.year).slice(2)}</span>
+    </span>
+  </div>
+  <div class="min-w-0 space-y-1.5">
+    <h3 class="font-serif text-lg leading-snug font-semibold">{pub.title}</h3>
+    <Authors authors={pub.authors} />
+    <p class="text-sm italic">
+      {pub.venue}, {pub.year}
+      {pub.note && <span class="text-muted not-italic"> · {pub.note}</span>}
+    </p>
+    {
+      (links.length > 0 || pub.bibtex) && (
+        <div class="flex flex-wrap gap-2 pt-1">
+          {links.map(([kind, href]) => (
+            <a
+              href={href}
+              target="_blank"
+              rel="noopener"
+              class="border-line text-accent hover:bg-highlight rounded-md border px-2.5 py-0.5 text-xs font-medium transition-colors"
+            >
+              {linkLabels[kind]}
+            </a>
+          ))}
+          {pub.bibtex && (
+            <details class="group open:basis-full">
+              <summary class="border-line text-accent hover:bg-highlight inline-block cursor-pointer list-none rounded-md border px-2.5 py-0.5 text-xs font-medium transition-colors group-open:bg-highlight">
+                BibTeX
+              </summary>
+              <div class="relative mt-2">
+                <pre class="bg-surface border-line overflow-x-auto rounded-lg border p-3 pr-16 text-xs leading-relaxed"><code>{pub.bibtex}</code></pre>
+                <button
+                  type="button"
+                  data-copy={pub.bibtex}
+                  class="bg-bg border-line text-accent hover:bg-highlight absolute top-2 right-2 rounded border px-2 py-0.5 text-xs"
+                >
+                  Copy
+                </button>
+              </div>
+            </details>
+          )}
+        </div>
+      )
+    }
+  </div>
+</article>

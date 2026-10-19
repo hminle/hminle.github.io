@@ -1,0 +1,28 @@
+---
+import type { Role } from '../data/site';
+
+interface Props {
+  items: Role[];
+}
+
+const { items } = Astro.props;
+---
+
+<ol class="border-line relative space-y-6 border-l pl-6">
+  {
+    items.map((r) => (
+      <li class="relative">
+        <span class="bg-sage ring-bg absolute top-1.5 -left-[1.86rem] size-2.5 rounded-full ring-4" />
+        <div class="flex flex-wrap items-baseline justify-between gap-x-4">
+          <h3 class="font-semibold">{r.org}</h3>
+          <span class="text-muted text-sm tabular-nums">{r.period}</span>
+        </div>
+        <p class="text-sm">
+          {r.title}
+          <span class="text-muted"> · {r.place}</span>
+        </p>
+        {r.note && <p class="text-muted mt-1 text-sm leading-relaxed">{r.note}</p>}
+      </li>
+    ))
+  }
+</ol>

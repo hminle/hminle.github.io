@@ -1,9 +1,6 @@
-_site
-.bundle
-.sass-cache
-.jekyll-cache
-.jekyll-metadata
-.DS_store
-.ruby-version
-.tweet-cache
-vendor
+dist/
+.astro/
+node_modules/
+.env
+.env.*
+.DS_Store

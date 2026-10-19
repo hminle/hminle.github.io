@@ -1,0 +1,21 @@
+---
+import { myNames } from '../data/publications';
+
+interface Props {
+  authors: string[];
+}
+
+const { authors } = Astro.props;
+const isMe = (a: string) => myNames.includes(a.replace(/\*$/, ''));
+---
+
+<p class="text-muted text-sm leading-relaxed">
+  {
+    authors.map((a, i) => (
+      <>
+        {isMe(a) ? <strong class="text-ink font-semibold">{a}</strong> : a}
+        {i < authors.length - 1 && ', '}
+      </>
+    ))
+  }
+</p>
