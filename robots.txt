@@ -1,4 +1,4 @@
 User-agent: *
-Disallow:
+Allow: /
 
-Sitemap: https://hminle.com//sitemap.xml
+Sitemap: https://hminle.com/sitemap-index.xml
