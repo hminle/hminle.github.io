@@ -11,10 +11,10 @@ const linkLabels = { pdf: 'PDF', arxiv: 'arXiv', code: 'Code', project: 'Project
 const links = Object.entries(pub.links ?? {}) as [keyof typeof linkLabels, string][];
 ---
 
-<article class="grid gap-x-5 gap-y-2 sm:grid-cols-[5.5rem_1fr]">
+<article class="grid gap-x-5 gap-y-2 sm:grid-cols-[5.5rem_minmax(0,1fr)]">
   <div class="pt-0.5">
     <span
-      class="bg-badge text-badge-ink inline-block min-w-16 rounded-md px-2 py-1 text-center text-xs font-semibold tracking-wide"
+      class:list={[`pub-${pub.type}`, 'inline-block min-w-16 rounded-md px-2 py-1 text-center text-xs font-semibold tracking-wide']}
     >
       {pub.abbr}
       <span class="opacity-75">'{String(pub.year).slice(2)}</span>

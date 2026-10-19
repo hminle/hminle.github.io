@@ -4,6 +4,12 @@ import PubItem from '../components/PubItem.astro';
 import { publications } from '../data/publications';
 import { site } from '../data/site';
 
+const legend = [
+  { type: 'conference', label: 'Conference' },
+  { type: 'journal', label: 'Journal' },
+  { type: 'workshop', label: 'Workshop' },
+  { type: 'preprint', label: 'Preprint' },
+];
 const years = [...new Set(publications.map((p) => p.year))].sort((a, b) => b - a);
 ---
 
@@ -14,6 +20,13 @@ const years = [...new Set(publications.map((p) => p.year))].sort((a, b) => b - a
       {publications.length} papers. Also on{' '}
       <a class="link" href={site.links.scholar} target="_blank" rel="noopener">Google Scholar</a>.
     </p>
+    <ul class="flex flex-wrap gap-2 pt-2">
+      {
+        legend.map((l) => (
+          <li class:list={[`pub-${l.type}`, 'rounded-md px-2.5 py-1 text-xs font-semibold']}>{l.label}</li>
+        ))
+      }
+    </ul>
   </header>
 
   <div class="mt-12 space-y-14">

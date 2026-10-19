@@ -3,16 +3,18 @@ import type { Role } from '../data/site';
 
 interface Props {
   items: Role[];
+  /** Tailwind background class for the timeline dots. */
+  dot?: string;
 }
 
-const { items } = Astro.props;
+const { items, dot = 'bg-sage' } = Astro.props;
 ---
 
 <ol class="border-line relative space-y-6 border-l pl-6">
   {
     items.map((r) => (
       <li class="relative">
-        <span class="bg-sage ring-bg absolute top-1.5 -left-[1.86rem] size-2.5 rounded-full ring-4" />
+        <span class:list={[dot, 'ring-bg absolute top-1.5 -left-[1.86rem] size-2.5 rounded-full ring-4']} />
         <div class="flex flex-wrap items-baseline justify-between gap-x-4">
           <h3 class="font-semibold">{r.org}</h3>
           <span class="text-muted text-sm tabular-nums">{r.period}</span>

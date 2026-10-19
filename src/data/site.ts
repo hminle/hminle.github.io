@@ -29,7 +29,7 @@ export type Role = {
 };
 
 export const experience: Role[] = [
-  { org: 'Sunvair', title: 'AI Engineer', period: '2026 – now', place: 'Remote', note: 'Enterprise LLM-agent platform: MCP server, text-to-SQL over Oracle ERP, Microsoft 365 Copilot agents.' },
+  { org: 'Sunvair', title: 'AI Engineer', period: '2026 – now', place: 'Remote, USA', note: 'Enterprise LLM-agent platform: MCP server, text-to-SQL over Oracle ERP, Microsoft 365 Copilot agents.' },
   { org: 'Birdwatch', title: 'AI Engineer', period: '2025 – 2026', place: 'Remote, USA', note: 'Agent platform and a multimodal property digital twin built from 30k+ inspection images.' },
   { org: 'OptimalityPro', title: 'AI Engineer', period: '2024 – 2025', place: 'Remote, USA' },
   { org: 'Borealis AI (RBC)', title: 'AI/ML Intern', period: '2023 – 2024', place: 'Toronto', note: 'Deep survival analysis on medical and financial data.' },

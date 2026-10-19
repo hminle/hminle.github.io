@@ -2,8 +2,22 @@
 @import '@fontsource-variable/inter';
 @import '@fontsource-variable/source-serif-4';
 
-/* Palette: #e8f1f2 mist · #b3efb2 mint · #7a9e7e sage · #31493c forest · #001a23 ink */
+/* Forest palette: #e8f1f2 mist · #b3efb2 mint · #7a9e7e sage · #31493c forest · #001a23 ink
+   Forest-floor accents: #d9a66b amber · #5c4033 bark · #52796f moss · #f0ead6 cream */
 :root {
+  --amber: #d9a66b;
+  --bark: #5c4033;
+  --moss: #52796f;
+  --cream: #f0ead6;
+  --sage: #7a9e7e;
+  --pub-conference: #31493c;
+  --pub-conference-ink: #e8f1f2;
+  --pub-journal: #5c4033;
+  --pub-journal-ink: #f0ead6;
+  --pub-workshop: #456a60;
+  --pub-workshop-ink: #e8f1f2;
+  --pub-preprint: #d9a66b;
+  --pub-preprint-ink: #001a23;
   --bg: #e8f1f2;
   --surface: #f5f9f9;
   --text: #001a23;
@@ -26,6 +40,16 @@
   --line: #1f3a37;
   --badge-bg: #b3efb2;
   --badge-text: #001a23;
+  --amber: #e0b77f;
+  --moss: #84a98c;
+  --pub-conference: #b3efb2;
+  --pub-conference-ink: #001a23;
+  --pub-journal: #e0b77f;
+  --pub-journal-ink: #001a23;
+  --pub-workshop: #84a98c;
+  --pub-workshop-ink: #001a23;
+  --pub-preprint: #f0ead6;
+  --pub-preprint-ink: #001a23;
   color-scheme: dark;
 }
 
@@ -42,6 +66,10 @@
   --color-badge: var(--badge-bg);
   --color-badge-ink: var(--badge-text);
   --color-sage: #7a9e7e;
+  --color-amber: var(--amber);
+  --color-bark: var(--bark);
+  --color-moss: var(--moss);
+  --color-cream: var(--cream);
 }
 
 @layer base {
@@ -65,12 +93,12 @@
 }
 
 @layer components {
-  /* Prose links: subtle mint underline that fills on hover. */
+  /* Prose links: amber underline that darkens on hover. */
   .link {
     color: var(--accent);
     font-weight: 500;
     text-decoration: underline;
-    text-decoration-color: var(--sage, #7a9e7e);
+    text-decoration-color: var(--amber);
     text-decoration-thickness: 1px;
     text-underline-offset: 3px;
     transition: text-decoration-color 150ms, background-color 150ms;
@@ -88,10 +116,38 @@
     align-items: center;
     gap: 0.75rem;
   }
+  .section-title::before {
+    content: '';
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 2px;
+    background: var(--amber);
+    transform: rotate(45deg);
+  }
   .section-title::after {
     content: '';
     flex: 1;
     height: 1px;
     background: var(--line);
+  }
+}
+
+@layer components {
+  .pub-conference { background: var(--pub-conference); color: var(--pub-conference-ink); }
+  .pub-journal { background: var(--pub-journal); color: var(--pub-journal-ink); }
+  .pub-workshop { background: var(--pub-workshop); color: var(--pub-workshop-ink); }
+  .pub-preprint { background: var(--pub-preprint); color: var(--pub-preprint-ink); }
+
+  /* Thin canopy-to-sunlight stripe across the top of the page. */
+  .forest-stripe {
+    height: 3px;
+    background: linear-gradient(90deg, #31493c, #52796f 30%, #7a9e7e 55%, #b3efb2 75%, #d9a66b);
+  }
+
+  /* Soft light-through-leaves glow behind the hero. */
+  .hero-glow {
+    background:
+      radial-gradient(60% 80% at 85% 20%, color-mix(in oklab, var(--accent) 12%, transparent), transparent 70%),
+      radial-gradient(50% 70% at 10% 90%, color-mix(in oklab, var(--amber) 22%, transparent), transparent 70%);
   }
 }

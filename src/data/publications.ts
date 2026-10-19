@@ -4,6 +4,7 @@ export type Publication = {
   venue: string;
   /** Short badge label, e.g. "CVPR". */
   abbr: string;
+  type: 'conference' | 'journal' | 'workshop' | 'preprint';
   year: number;
   /** Shown on the home page. */
   selected?: boolean;
@@ -22,6 +23,7 @@ export const publications: Publication[] = [
     authors: ['Tien-Huy Nguyen', 'Minh-Nhat Nguyen', 'Nhat-Huy Nguyen', 'Hung-Viet Nguyen', 'Huy Minh Nhat Nguyen', 'Thanh-Huy Nguyen', 'Cuong Tuan Nguyen', 'Hoang M. Le', 'Dat Nguyen', 'Phat Kim Huynh', 'et al.'],
     venue: 'European Conference on Computer Vision (ECCV), pp. 488–506',
     abbr: 'ECCV',
+    type: 'conference',
     year: 2026,
     selected: true,
   },
@@ -30,6 +32,7 @@ export const publications: Publication[] = [
     authors: ['Abhijith Punnappurath', 'Luxi Zhao', 'Hoang Le', 'Abdelrahman Abdelhamed', 'SaiKiran Kumar Tedla', 'Michael S. Brown'],
     venue: 'Journal of the Optical Society of America A, 42(8), pp. 1182–1190',
     abbr: 'JOSA A',
+    type: 'journal',
     year: 2025,
     selected: true,
   },
@@ -38,6 +41,7 @@ export const publications: Publication[] = [
     authors: ['Huu-Loc Tran', 'Tinh-Anh Nguyen-Nhu', 'Huu-Phong Phan-Nguyen', 'Tien-Huy Nguyen', 'Nhat-Minh Nguyen-Dich', 'Anh Dao', 'Huy-Duc Do', 'Quan Nguyen', 'Hoang M. Le', 'Quang-Vinh Dinh'],
     venue: 'CVPR Workshops (IViSE), pp. 3719–3729',
     abbr: 'CVPRW',
+    type: 'workshop',
     year: 2025,
   },
   {
@@ -45,6 +49,7 @@ export const publications: Publication[] = [
     authors: ['Tinh-Anh Nguyen-Nhu', 'Huu-Loc Tran', 'Nguyen-Khang Le', 'Minh-Nhat Nguyen', 'Tien-Huy Nguyen', 'Hoang-Long Nguyen-Huu', 'Huu-Phong Phan-Nguyen', 'Huy-Thach Pham', 'Quan Nguyen', 'Hoang M. Le', 'et al.'],
     venue: 'CVPR Workshops (IViSE), pp. 3708–3718',
     abbr: 'CVPRW',
+    type: 'workshop',
     year: 2025,
   },
   {
@@ -52,6 +57,7 @@ export const publications: Publication[] = [
     authors: ['Huu-Phong Phan-Nguyen', 'Anh Dao', 'Tien-Huy Nguyen', 'Tuan Quang', 'Huu-Loc Tran', 'Tinh-Anh Nguyen-Nhu', 'Huy-Thach Pham', 'Quan Nguyen', 'Hoang Le', 'Quang-Vinh Dinh'],
     venue: 'CVPR Workshops (MAI), pp. 1888–1897',
     abbr: 'CVPRW',
+    type: 'workshop',
     year: 2025,
   },
   {
@@ -59,6 +65,7 @@ export const publications: Publication[] = [
     authors: ['Lilian W. Bialokozowicz*', 'Hoang M. Le*', 'Tristan Sylvain', 'Peter A. I. Forsyth', 'Vineel Nagisetty', 'Greg Mori'],
     venue: 'arXiv preprint arXiv:2402.01955',
     abbr: 'arXiv',
+    type: 'preprint',
     year: 2024,
     note: '* equal contribution',
     links: { arxiv: 'https://arxiv.org/abs/2402.01955' },
@@ -68,6 +75,7 @@ export const publications: Publication[] = [
     authors: ['Hoang M. Le', 'Brian Price', 'Scott Cohen', 'Michael S. Brown'],
     venue: 'IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), pp. 18268–18277',
     abbr: 'CVPR',
+    type: 'conference',
     year: 2023,
     selected: true,
     links: {
@@ -89,6 +97,7 @@ export const publications: Publication[] = [
     authors: ['Duong Tran Anh', 'Dat Vi Thanh', 'Hoang Minh Le', 'Bang Tran Sy', 'Ahad Hasan Tanim', 'Quoc Bao Pham', 'Thanh Duc Dang', 'Son T. Mai', 'Nguyen Mai Dang'],
     venue: 'Water Resources Management',
     abbr: 'WRM',
+    type: 'journal',
     year: 2022,
   },
   {
@@ -96,6 +105,7 @@ export const publications: Publication[] = [
     authors: ['Hong Ong', 'Hoang Le', 'Hoang Nguyen', 'Dong Nguyen', 'Huong Ha', 'Hoan T. Ngo', 'N. T. Duc'],
     venue: 'International Conference on the Development of Biomedical Engineering in Vietnam',
     abbr: 'BME',
+    type: 'conference',
     year: 2022,
   },
   {
@@ -103,6 +113,7 @@ export const publications: Publication[] = [
     authors: ['Dong Nguyen', 'Hoang Nguyen', 'Hong Ong', 'Hoang Le', 'Huong Ha', 'N. T. Duc', 'Hoan T. Ngo'],
     venue: 'IBRO Neuroscience Reports, 13',
     abbr: 'IBRO',
+    type: 'journal',
     year: 2022,
   },
   {
@@ -110,6 +121,7 @@ export const publications: Publication[] = [
     authors: ['Hoang Le*', 'Taehong Jeong*', 'Abdelrahman Abdelhamed', 'Hyun Joon Shin', 'Michael S. Brown'],
     venue: 'Color and Imaging Conference (CIC29)',
     abbr: 'CIC',
+    type: 'conference',
     year: 2021,
     selected: true,
     note: '* equal contribution',
@@ -129,6 +141,7 @@ export const publications: Publication[] = [
     authors: ['Hoang Le', 'Mahmoud Afifi', 'Michael S. Brown'],
     venue: 'Color and Imaging Conference (CIC28)',
     abbr: 'CIC',
+    type: 'conference',
     year: 2020,
     selected: true,
     links: {
@@ -147,6 +160,7 @@ export const publications: Publication[] = [
     authors: ['Song Pham Van', 'Hoang Minh Le', 'Dat Vi Thanh', 'Thanh Duc Dang', 'Ho Huu Loc', 'Duong Tran Anh'],
     venue: 'Journal of Hydroinformatics',
     abbr: 'JHydro',
+    type: 'journal',
     year: 2020,
   },
 ];
